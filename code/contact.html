@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Interior Design and Decoration</title>
+    <link rel="icon" href="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background: #a79f9c;
+            color: rgb(48, 48, 48);
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        nav {
+            margin-left: auto;
+        }
+        nav a {
+            color: rgb(48, 48, 48);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #e9e5e0;
+        }
+        .contact {
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #34495e;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #898584;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .button-container {
+            text-align: center;
+        }
+        button:hover {
+            background-color: #696665;
+        }
+        footer {
+            background: #a79f9c;
+            color: rgb(48, 48, 48);
+            text-align: center;
+            font-weight: bold;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .radio-label, .checkbox-label {
+            display: flex;
+            align-items: center; 
+            margin-bottom: 0; 
+        }
+        .radio-label input, .checkbox-label input {
+            margin: 0;
+            width: auto; 
+            height: auto;
+        }
+        .radio-label label, .checkbox-label label {
+            margin-left: 5px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" alt="Logo"></a> 
+        <h1>Interior Design and Decoration</h1>
+        <nav>
+            <a href="index.html">Home Page</a>
+            <a href="#aboutus">About Us</a>
+            <a href="projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header><br><br>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form action="https://jsonplaceholder.typicode.com/posts" method="POST" id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Your Query:</label>
+                <textarea id="message" name="message" rows="7" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Select a Service:</label><br>
+                <div class="radio-label">
+                    <input type="radio" id="consultation" name="service" value="consultation" required>
+                    <label for="consultation">Consultation</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="renovation" name="service" value="renovation" required>
+                    <label for="renovation">Renovation</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="preferredContact">Preferred Contact Method:</label>
+                <select id="preferredContact" name="preferredContact" required>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Preferred Contact Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Preferred Contact Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-label">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the terms and conditions</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="button-container">
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </section><br><br>
+
+    <footer>
+        <p>&copy; 2024 Foundations of Web Development - Nejla Mizdrak</p>
+    </footer>
+</body>
+</html>

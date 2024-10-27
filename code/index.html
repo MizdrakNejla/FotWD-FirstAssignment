@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design and Decoration</title>
+    <link rel="icon" href="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            display: flex; 
+            align-items: center; 
+            background: #a79f9c;
+            color: rgb(48, 48, 48);
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            height: 50px; 
+            margin-right: 20px;
+        }
+        nav {
+            margin-left: auto; 
+        }
+        nav a {
+            color: rgb(48, 48, 48);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #e9e5e0;
+        }
+        .hero {
+            background: url('C:/Users/Korisnik/Desktop/FirstAssignment/images/index.jpg') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0);
+        }
+        .hero h1 {
+            position: relative;
+            font-size: 3em;
+            margin: 0;
+            color: rgb(42, 41, 41);
+        }
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .portfolio {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .grid-item {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+        .grid-item img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .grid-item p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        footer {
+            background: #a79f9c;
+            color: rgb(48, 48, 48);
+            text-align: center;
+            font-weight: bold;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <a href="index.html"><img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" alt="Logo"></a> 
+    <h1>Interior Design and Decoration</h1>
+    <nav>
+        <a href="index.html">Home Page</a>
+        <a href="#aboutus">About Us</a>
+        <a href="projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>Let's Transform Your Living Space</h1>
+</div>
+
+<section id="portfolio" class="portfolio">
+    <h2>Our Portfolio</h2>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/livingroom.jpg" alt="Living Room">
+            <p>Living Rooms</p>
+        </div>
+        <div class="grid-item">
+            <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/kitchen.jpg" alt="Kitchen">
+            <p>Kitchens</p>
+        </div>
+        <div class="grid-item">
+            <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/bedroom.jpg" alt="Bedroom">
+            <p>Bedrooms</p>
+        </div>
+        <div class="grid-item">
+            <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/bathroom.jpg" alt="Bathroom">
+            <p>Bathrooms</p>
+        </div>
+        <div class="grid-item">
+            <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/garden.jpg" alt="Garden">
+            <p>Gardens</p>
+        </div>
+        <div class="grid-item">
+            <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/office.jpg" alt="Office">
+            <p>Offices</p>
+        </div>
+    </div> 
+</section>
+
+<footer>
+    <p>&copy; 2024 Foundations of Web Development - Nejla Mizdrak</p>
+</footer>
+
+</body>
+</html>
