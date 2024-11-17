@@ -5,116 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Interior Design and Decoration</title>
     <link rel="icon" href="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        section {
-            padding: 60px 20px;
-            text-align: center;
+        .team-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .grid-item {
-            background: #ffffff;
-            border-radius: 8px;
-
-            padding: 10px;
-        }
-        .grid-item img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-        .grid-item p {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        #meet-our-team {
-        text-align: center;
-        padding: 20px;
-    }
-    .team-container {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-    .team-member {
-        margin: 15px;
-        max-width: 200px;
-        color: rgb(42, 41, 41);
-    }
-    .team-member img {
-        width: 100%;
-        border-radius: 10px;
-    }
-    h2 {
+        .team-member {
+            margin: 15px;
+            max-width: 200px;
             color: rgb(42, 41, 41);
-    }
-    p {
-        color: rgb(48, 48, 48);
-    }
-    a {
-            color: rgb(33, 32, 32);
+        }
+        .team-member img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .team-member:hover img {
+            transform: scale(1.1);
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 40px;
+            color: rgb(48, 48, 48);
+            text-align: center;
+            margin-top: 20px;
+        }
+        ul li {
+            margin: 10px 0;
+        }
+        .button-container {
+            text-align: center;
         }
     </style>
 </head>
 <body>
+
 <header>
     <a href="index.html"><img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" alt="Logo"></a>
     <h1>Interior Design and Decoration</h1>
     <nav>
         <a href="index.html">Home Page</a>
         <a href="about_us.html">About Us</a>
-        <a href="#projects">Projects</a>
+        <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
     </nav>
 </header>
+
 <section id="aboutus">
     <h2>About Us</h2>
-    <p>Do you need help with the interior design of your home, yard, or office?<br> You’re in the right place, welcome to
-         <strong>'Interior Design and Decoration'</strong>, the place where you can achieve all your wishes and ideas with the assistance
-          of our professional and friendly staff.</p>
+    <p class="text-justify">Do you need help with the interior design of your home, yard, or office? You are in the right place, welcome to <strong>'Interior Design and Decoration'</strong>, the place where you can achieve all your wishes and ideas with the assistance of our professional and friendly staff.</p>
 
     <h2>Our Story</h2>
-    <p>Our story begins not so long ago, in Sarajevo in 2020, when a young girl, during the height of the pandemic, 
-        decided to finally bring her imagination and ideas to life. Having just graduated, full of acquired knowledge, 
-        she resolved to use it to help many in the search for and decoration of the perfect living space.</p>
+    <p class="text-justify">Our story begins not so long ago, in Sarajevo in 2020, when a young girl, during the height of the pandemic, decided to finally bring her imagination and ideas to life. Having just graduated, full of acquired knowledge, she resolved to use it to help many in the search for and decoration of the perfect living space.</p>
 
     <h2>Our Values</h2>
-    <p>We establish our company on the foundation of collaboration, carefully ensuring that every client is respected
-         and that their desires are completely acknowledged and fulfilled. Clients are involved in the very process
-         of creating their home from the very beginning of the project all the way to its completion.</p>
+    <p class="text-justify">We establish our company on the foundation of collaboration, carefully ensuring that every client is respected and that their desires are completely acknowledged and fulfilled. Clients are involved in the very process of creating their home from the very beginning of the project all the way to its completion. If you are interested in our company policy, you can find it at the following <a href="https://www.slideshare.net/slideshow/3-sample-company-rules-and-policydocx/256742731" target="_blank">link</a>.</p>
 
     <h2>Meet Our Team</h2>
     <section id="meet-our-team">
         <div class="team-container">
-            <div class="team-member">
-                <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/person1.jpg" alt="Marija Sović">
+            <article class="team-member">
+                <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/person1.jpg" alt="Marija Sović, CEO & Founder">
                 <h3>Marija Sović</h3>
-                <p>CEO & Founder</p>
-            </div>
-            <div class="team-member">
-                <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/person2.jpg" alt="Amar Kadrić">
+                <p class="text-justify">CEO & Founder</p>
+            </article>
+            <article class="team-member">
+                <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/person2.jpg" alt="Amar Kadrić, Project Manager">
                 <h3>Amar Kadrić</h3>
-                <p>Project Manager</p>
-            </div>
-            <div class="team-member">
-                <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/person3.jpg" alt="Ana Marić">
+                <p class="text-justify">Project Manager</p>
+            </article>
+            <article class="team-member">
+                <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/person3.jpg" alt="Ana Marić, Interior Designer">
                 <h3>Ana Marić</h3>
-                <p>Interior Designer</p>
-            </div>
-            <div class="team-member">
-                <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/person4.jpg" alt="Dijana Bajrić">
+                <p class="text-justify">Interior Designer</p>
+            </article>
+            <article class="team-member">
+                <img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/person4.jpg" alt="Dijana Bajrić, Architect">
                 <h3>Dijana Bajrić</h3>
-                <p>Architect</p>
-            </div>
+                <p class="text-justify">Architect</p>
+            </article>
         </div>
     </section>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <ul>
+        <li><strong>How long does a project take?</strong> Project timelines depend on the scope of work, but we provide clear estimates for every phase of the project.</li>
+        <li><strong>Can you work within my budget?</strong> Yes! We can design spaces that meet your needs without exceeding your budget.</li>
+        <li><strong>Do you offer free consultations?</strong> Yes, we offer free initial consultations to discuss your project and ideas.</li>
+        <li><strong>Can you help with custom furniture?</strong> Yes, we design and source custom furniture pieces that perfectly match your space.</li>
+        <li><strong>What areas do you serve?</strong> We provide interior design services in Sarajevo and its surrounding area.</li>
+    </ul><br>
+
     <h2>Elevate Your Space Today!</h2>
-    <p>If you want to collaborate with us, don't hesitate to reach out to us right away. <a href="contact.html">Contact us</a>, 
-        fill out the form, and expect our response within 3 business days.</p>
-    <p>We look forward to hearing from you!</p>
+    <p class="text-justify">If you want to collaborate with us, don't hesitate to reach out to us right away. <a href="contact.html">Contact us</a>, fill out the form, and expect our response within 3 business days.</p>
+    <p class="text-justify">Or if you wish to contact our manager directly, reach out to her at this email: <a href="mailto:amela.vatres@stu.ibu.edu.ba">amela.vatres@stu.ibu.edu.ba</a></p>
+    <p class="text-justify">We look forward to hearing from you!</p>
 </section>
 
 <footer>

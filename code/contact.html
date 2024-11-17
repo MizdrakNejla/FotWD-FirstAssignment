@@ -5,24 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Interior Design and Decoration</title>
     <link rel="icon" href="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <style>
         .contact {
             padding: 40px;
             background-color: #ffffff;
             border-radius: 10px;
-            max-width: 600px;
+            max-width: 800px;
             margin: auto;
-        }
-        h2 {
-            text-align: center;
-            color: rgb(48, 48, 48);
         }
         .form-group {
             margin-bottom: 20px;
         }
         label {
-            display: block;
+            display: flex;
+            justify-content: space-between;
             font-weight: bold;
             color: rgb(73, 72, 72);
         }
@@ -34,128 +33,203 @@
             border-radius: 5px;
             transition: border-color 0.3s;
         }
-        input:focus, textarea:focus, select:focus {
-            border-color: #3498db;
-            outline: none;
-        }
-        button {
-            padding: 12px 20px;
-            background-color: #898584;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-        .button-container {
-            text-align: center;
-        }
-        button:hover {
-            background-color: #696665;
-        }
-        .radio-label, .checkbox-label {
+        .drag-area {
+            width: 100%;
+            height: 200px;
+            border: 2px dashed #bdc3c7;
+            border-radius: 10px;
+            background-color: #f9f9f9;
             display: flex;
-            align-items: center; 
-            margin-bottom: 0; 
-        }
-        .radio-label input, .checkbox-label input {
-            margin: 0;
-            width: auto; 
-            height: auto;
-        }
-        .radio-label label, .checkbox-label label {
-            margin-left: 5px; 
+            justify-content: center;
+            align-items: center;
+            color: #7f8c8d;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <header>
-        <a href="index.html"><img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" alt="Logo"></a> 
-        <h1>Interior Design and Decoration</h1>
-        <nav>
-            <a href="index.html">Home Page</a>
-            <a href="about_us.html">About Us</a>
-            <a href="#projects">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header><br><br>
 
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <form action="https://jsonplaceholder.typicode.com/posts" method="POST" id="contactForm">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="surname">Surname:</label>
-                <input type="text" id="surname" name="surname" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Your Query:</label>
-                <textarea id="message" name="message" rows="7" required></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label>Select a Service:</label><br>
-                <div class="radio-label">
-                    <input type="radio" id="consultation" name="service" value="consultation" required>
-                    <label for="consultation">Consultation</label>
-                </div>
-                <div class="radio-label">
-                    <input type="radio" id="renovation" name="service" value="renovation" required>
-                    <label for="renovation">Renovation</label>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="preferredContact">Preferred Contact Method:</label>
-                <select id="preferredContact" name="preferredContact" required>
-                    <option value="email">Email</option>
-                    <option value="phone">Phone</option>
-                </select>
-            </div>
+<header>
+    <a href="index.html"><img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" alt="Logo"></a> 
+    <h1>Interior Design and Decoration</h1>
+    <nav>
+        <a href="index.html">Home Page</a>
+        <a href="about_us.html">About Us</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
-            <div class="form-group">
-                <label for="date">Preferred Contact Date:</label>
-                <input type="date" id="date" name="date" required>
-            </div>
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
 
-            <div class="form-group">
-                <label for="time">Preferred Contact Time:</label>
-                <input type="time" id="time" name="time" required>
-            </div>
+    <div id="alert" class="alert alert-success" style="display:none;">
+        Your message has been successfully submitted!
+    </div>
+    <div id="alert-error" class="alert alert-danger" style="display:none;">
+        Something went wrong. Please try again.
+    </div>
 
-            <div class="form-group">
-                <div class="checkbox-label">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">I agree to the terms and conditions</label>
-                </div>
-            </div>
+    <form action="https://jsonplaceholder.typicode.com/posts" method="POST" id="contactForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
 
-            <div class="form-group">
-                <div class="button-container">
-                    <button type="submit">Submit</button>
-                </div>
-            </div>
-        </form>
-    </section><br><br>
+        <div class="form-group">
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" required>
+        </div>
 
-    <footer>
-        <p>&copy; 2024 Foundations of Web Development - Nejla Mizdrak</p>
-    </footer>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
+        </div>
+
+        <div class="form-group">
+            <label for="message">Your Query:</label>
+            <textarea id="message" name="message" rows="7" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Upload Inspirational Photo or Your Current Space Image:</label>
+            <div class="drag-area" id="drag-area">Insert your image here</div>
+            <input type="file" id="image-input" style="display:none;">
+        </div>
+
+        <div class="form-group">
+            <label>Select a Service:</label><br>
+            <div class="radio-label">
+                <input type="radio" id="consultation" name="service" value="consultation" required>
+                <label for="consultation">Consultation</label>
+            </div>
+            <div class="radio-label">
+                <input type="radio" id="renovation" name="service" value="renovation" required>
+                <label for="renovation">Renovation</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="preferredContact">Preferred Contact Method:</label>
+            <select id="preferredContact" name="preferredContact" required>
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="date">Preferred Contact Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="time">Preferred Contact Time:</label>
+            <input type="time" id="time" name="time" required>
+        </div>
+
+        <div class="form-group">
+            <div class="checkbox-label">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the terms and conditions</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="button-container">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#instructionModal">
+        How to Fill Out the Form
+    </button>
+</section>
+
+<div class="modal fade" id="instructionModal" tabindex="-1" aria-labelledby="instructionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="instructionModalLabel">How to Fill Out the Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>1. Name and Surname:</strong> Please enter your first and last name accurately.</p>
+                <p><strong>2. Email:</strong> Use a valid email address so we can reach you.</p>
+                <p><strong>3. Phone:</strong> Enter your phone number in the format (1234567890) for contact purposes.</p>
+                <p><strong>4. Message:</strong> Provide a brief description of your inquiry or project.</p>
+                <p><strong>5. Upload an Image:</strong> You can drag and drop an image or select one manually to provide visual references.</p>
+                <p><strong>6. Service Selection:</strong> Choose the service you are interested in (Consultation or Renovation).</p>
+                <p><strong>7. Preferred Contact Method:</strong> Choose whether you'd prefer to be contacted via email or phone.</p>
+                <p><strong>8. Preferred Contact Time:</strong> Select a date and time that works best for you to be contacted.</p>
+                <p><strong>9. Terms and Conditions:</strong> You must agree to the terms before submitting the form.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Foundations of Web Development - Nejla Mizdrak</p>
+</footer>
+
+<script>
+    const dragArea = document.getElementById('drag-area');
+    const imageInput = document.getElementById('image-input');
+    dragArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dragArea.classList.add('hover');
+    });
+    dragArea.addEventListener('dragleave', () => {
+        dragArea.classList.remove('hover');
+    });
+    dragArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dragArea.classList.remove('hover');
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            const file = files[0];
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const img = document.createElement('img');
+                    img.src = event.target.result;
+                    dragArea.innerHTML = '';
+                    dragArea.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please drop a valid image file.');
+            }
+        }
+    });
+    dragArea.addEventListener('click', () => {
+        imageInput.click();
+    });
+    imageInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const img = document.createElement('img');
+                img.src = event.target.result;
+                dragArea.innerHTML = '';
+                dragArea.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            alert('Please select a valid image file.');
+        }
+    });
+</script>
+
 </body>
 </html>
