@@ -68,10 +68,10 @@
         Your message has been successfully submitted!
     </div>
     <div id="alert-error" class="alert alert-danger" style="display:none;">
-        Something went wrong. Please try again.
+        Please fill in all required fields before submitting.
     </div>
 
-    <form action="https://jsonplaceholder.typicode.com/posts" method="POST" id="contactForm">
+    <form id="contactForm">
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -182,51 +182,28 @@
 </footer>
 
 <script>
-    const dragArea = document.getElementById('drag-area');
-    const imageInput = document.getElementById('image-input');
-    dragArea.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        dragArea.classList.add('hover');
-    });
-    dragArea.addEventListener('dragleave', () => {
-        dragArea.classList.remove('hover');
-    });
-    dragArea.addEventListener('drop', (e) => {
-        e.preventDefault();
-        dragArea.classList.remove('hover');
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-            const file = files[0];
-            if (file.type.startsWith('image/')) {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    const img = document.createElement('img');
-                    img.src = event.target.result;
-                    dragArea.innerHTML = '';
-                    dragArea.appendChild(img);
-                };
-                reader.readAsDataURL(file);
-            } else {
-                alert('Please drop a valid image file.');
+    const contactForm = document.getElementById('contactForm');
+    const alertSuccess = document.getElementById('alert');
+    const alertError = document.getElementById('alert-error');
+    
+    contactForm.addEventListener('submit', function(event) {
+        let isValid = true;
+
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        requiredFields.forEach(field => {
+            if (!field.value) {
+                isValid = false;
             }
-        }
-    });
-    dragArea.addEventListener('click', () => {
-        imageInput.click();
-    });
-    imageInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                const img = document.createElement('img');
-                img.src = event.target.result;
-                dragArea.innerHTML = '';
-                dragArea.appendChild(img);
-            };
-            reader.readAsDataURL(file);
+        });
+
+        if (!isValid) {
+            event.preventDefault();
+            alertError.style.display = 'block';
+            alertSuccess.style.display = 'none';
         } else {
-            alert('Please select a valid image file.');
+            event.preventDefault();
+            alertError.style.display = 'none';
+            alertSuccess.style.display = 'block';
         }
     });
 </script>

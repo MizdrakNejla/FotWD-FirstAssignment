@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  color: rgb(42, 41, 41);
+}
+
+header {
+  background-color: #a79f9c;
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  color: #333;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+}
+nav a:hover {
+  color: #ffffff;
+}
+
+section {
+  padding: 40px 20px;
+}
+section h2 {
+  margin-bottom: 20px;
+  color: rgb(42, 41, 41);
+}
+section p {
+  color: rgb(48, 48, 48);
+  line-height: 1.6;
+}
+
+#meet-our-team {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+#meet-our-team .team-member {
+  margin: 15px;
+  max-width: 200px;
+  color: rgb(42, 41, 41);
+}
+#meet-our-team .team-member img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+#meet-our-team .team-member img:hover {
+  transform: scale(1.1);
+}
+#meet-our-team .team-member h3 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 40px;
+  color: rgb(48, 48, 48);
+  text-align: center;
+  margin-top: 20px;
+}
+ul li {
+  margin: 10px 0;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+footer {
+  background-color: #a79f9c;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+}

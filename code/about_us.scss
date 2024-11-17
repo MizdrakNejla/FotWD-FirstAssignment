@@ -1,0 +1,108 @@
+$primary-color: rgb(42, 41, 41);
+$secondary-color: rgb(48, 48, 48);
+$hover-scale: 1.1;
+$border-radius: 10px;
+$transition-speed: 0.3s;
+$font-family: 'Arial', sans-serif;
+
+@mixin center-text {
+  text-align: center;
+}
+
+@mixin flex-wrap {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  color: $primary-color;
+}
+
+header {
+  background-color: #a79f9c;
+  padding: 20px;
+  text-align: center;
+  h1 {
+    color: #333;
+  }
+}
+
+nav {
+  a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+section {
+  padding: 40px 20px;
+  h2 {
+    margin-bottom: 20px;
+    color: $primary-color;
+  }
+
+  p {
+    color: $secondary-color;
+    line-height: 1.6;
+  }
+}
+
+#meet-our-team {
+  @include flex-wrap;
+  
+  .team-member {
+    margin: 15px;
+    max-width: 200px;
+    color: $primary-color;
+    
+    img {
+      width: 100%;
+      border-radius: $border-radius;
+      transition: transform $transition-speed ease-in-out;
+      
+      &:hover {
+        transform: scale($hover-scale);
+      }
+    }
+
+    h3 {
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 40px;
+  color: $secondary-color;
+  text-align: center;
+  margin-top: 20px;
+  
+  li {
+    margin: 10px 0;
+  }
+}
+.button-container {
+  @include center-text;
+  margin-top: 30px;
+}
+
+footer {
+ background-color: #a79f9c;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+}
