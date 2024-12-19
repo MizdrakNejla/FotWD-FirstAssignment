@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Interior Design and Decoration</title>
     <link rel="icon" href="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about_us.scss">
     <link rel="stylesheet" href="about_us.css">
@@ -40,20 +42,21 @@
         .button-container {
             text-align: center;
         }
-        .toggle-button {
-            background-color: #7c7674;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
+
+        .accordion-button {
+            background-color: #f8f9fa;
+            color: #000;
+            border: 1px solid #ccc;
         }
-        .toggle-button:hover {
-            background-color: #686260;
+
+        .accordion-button:not(.collapsed) {
+            background-color: #a79f9c;
+            color: #fff;
+            border-color: #a79f9c;
         }
-        .toggle-content {
-            display: none;
+
+        .accordion-button:focus {
+            box-shadow: none;g
         }
     </style>
 </head>
@@ -107,16 +110,69 @@
     </section>
 
     <h2>Frequently Asked Questions (FAQ)</h2>
-    <button class="toggle-button" onclick="toggleContent('faq-list')">Toggle FAQ Section</button>
-    <div id="faq-list" class="toggle-content">
-        <ul>
-            <li><strong>How long does a project take?</strong> Project timelines depend on the scope of work, but we provide clear estimates for every phase of the project.</li>
-            <li><strong>Can you work within my budget?</strong> Yes! We can design spaces that meet your needs without exceeding your budget.</li>
-            <li><strong>Do you offer free consultations?</strong> Yes, we offer free initial consultations to discuss your project and ideas.</li>
-            <li><strong>Can you help with custom furniture?</strong> Yes, we design and source custom furniture pieces that perfectly match your space.</li>
-            <li><strong>What areas do you serve?</strong> We provide interior design services in Sarajevo and its surrounding area.</li>
-        </ul>
-    </div><br>
+
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    How long does a project take?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Project timelines depend on the scope of work, but we provide clear estimates for every phase of the project.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Can you work within my budget?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Yes! We can design spaces that meet your needs without exceeding your budget.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Do you offer free consultations?
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Yes, we offer free initial consultations to discuss your project and ideas.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Can you help with custom furniture?
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Yes, we design and source custom furniture pieces that perfectly match your space.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    What areas do you serve?
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    We provide interior design services in Sarajevo and its surrounding area.
+                </div>
+            </div>
+        </div>
+    </div>
 
     <h2>Elevate Your Space Today!</h2>
     <p class="text-justify">If you want to collaborate with us, don't hesitate to reach out to us right away. <a href="contact.html">Contact us</a>, fill out the form, and expect our response within 3 business days.</p>
@@ -127,17 +183,6 @@
 <footer>
     <p>&copy; 2024 Foundations of Web Development - Nejla Mizdrak</p>
 </footer>
-
-<script>
-    function toggleContent(id) {
-        var content = document.getElementById(id);
-        if (content.style.display === "none" || content.style.display === "") {
-            content.style.display = "block";
-        } else {
-            content.style.display = "none";
-        }
-    }
-</script>
 
 </body>
 </html>

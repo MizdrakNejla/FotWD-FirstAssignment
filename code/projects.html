@@ -6,6 +6,7 @@
     <title>Our Projects - Interior Design and Decoration</title>
     <link rel="icon" href="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <style>
         .hero {
@@ -96,6 +97,10 @@
             margin: 0 auto;
             text-align: center;
             width: 100%;
+        }
+
+        #designTable {
+            display: none;
         }
     </style>
 </head>
@@ -189,7 +194,8 @@
     <h2>A Comparison of Design Styles</h2>
     <p>Explore our range of design styles and find the perfect match for your preferences.</p>
 
-    <table class="table table-bordered table-hover">
+    <button id="toggleButton" class="btn btn-primary">Show Design Styles Table</button>
+    <table class="table table-bordered table-hover" id="designTable">
         <thead>
             <tr>
                 <th>Design Style</th>
@@ -227,7 +233,6 @@
     </table>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     const modal = new bootstrap.Modal(document.getElementById('imageModal'));
     const modalImage = document.getElementById('modalImage');
@@ -242,6 +247,21 @@
             modalTitle.textContent = imageTitle;
             modal.show();
         });
+    });
+
+    const toggleButton = document.getElementById('toggleButton');
+    const designTable = document.getElementById('designTable');
+
+    designTable.style.display = 'none';
+
+    toggleButton.addEventListener('click', function() {
+        if (designTable.style.display === 'none') {
+            designTable.style.display = 'table';
+            toggleButton.textContent = 'Hide Design Styles Table';
+        } else {
+            designTable.style.display = 'none';
+            toggleButton.textContent = 'Show Design Styles Table';
+        }
     });
 </script>
 
