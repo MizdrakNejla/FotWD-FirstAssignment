@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Interior Design and Decoration</title>
-    <link rel="icon" href="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" type="image/png">
+    <link rel="icon" href="../images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <style>
         .contact {
@@ -15,16 +21,21 @@
             max-width: 800px;
             margin: auto;
         }
+
         .form-group {
             margin-bottom: 20px;
         }
+
         label {
             display: flex;
             justify-content: space-between;
             font-weight: bold;
             color: rgb(73, 72, 72);
         }
-        input, textarea, select {
+
+        input,
+        textarea,
+        select {
             width: 100%;
             padding: 12px;
             margin-top: 5px;
@@ -32,6 +43,7 @@
             border-radius: 5px;
             transition: border-color 0.3s;
         }
+
         .drag-area {
             width: 100%;
             height: 200px;
@@ -60,7 +72,9 @@
             color: #fff;
         }
 
-        input.dark-theme, textarea.dark-theme, select.dark-theme {
+        input.dark-theme,
+        textarea.dark-theme,
+        select.dark-theme {
             background-color: #555;
             border-color: #888;
             color: #fff;
@@ -86,160 +100,308 @@
             cursor: pointer;
             border-radius: 5px;
         }
+
+        .alert-message {
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+        }
+
+        .alert-error {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+        }
+
+        .entity-table {
+            margin-top: 40px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .entity-table th,
+        .entity-table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .entity-table th {
+            background-color: #f4f4f4;
+        }
+
+        .entity-table td {
+            vertical-align: middle;
+        }
+
+        .action-buttons button {
+            margin: 5px;
+        }
     </style>
 </head>
+
 <body>
 
-<header>
-    <a href="index.html"><img src="C:/Users/Korisnik/Desktop/FirstAssignment/images/logo.png" alt="Logo"></a> 
-    <h1>Interior Design and Decoration</h1>
-    <nav>
-        <a href="index.html">Home Page</a>
-        <a href="about_us.html">About Us</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+    <header>
+        <a href="index.html"><img src="../images/logo.png" alt="Logo"></a>
+        <h1>Interior Design and Decoration</h1>
+        <nav>
+            <a href="index.html">Home Page</a>
+            <a href="about_us.html">About Us</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-<button class="theme-toggle" id="theme-toggle">Switch to Dark Theme</button>
+    <button class="theme-toggle" id="theme-toggle">Switch to Dark Theme</button>
 
-<section id="contact" class="contact">
-    <h2>Contact Us</h2>
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
 
-    <div id="alert" class="alert alert-success" style="display:none;">
-        Your message has been successfully submitted!
+            <div class="form-group">
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" required autocomplete="family-name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{9}" autocomplete="tel">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Query:</label>
+                <textarea id="message" name="message" rows="7" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Inspirational Photo or Your Current Space Image:</label>
+                <div class="drag-area" id="drag-area">Insert your image here</div>
+                <input type="file" id="image-input" style="display:none;">
+            </div>
+
+            <div class="form-group">
+                <label>Select a Service:</label><br>
+                <div class="radio-label">
+                    <input type="radio" id="consultation" name="service" value="consultation" required>
+                    <label for="consultation">Consultation</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="renovation" name="service" value="renovation" required>
+                    <label for="renovation">Renovation</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="preferredContact">Preferred Contact Method:</label>
+                <select id="preferredContact" name="preferredContact" required>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Preferred Contact Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Preferred Contact Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-label">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the terms and conditions</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="button-container">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#instructionModal">
+            How to Fill Out the Form
+        </button>
+
+        <h3>Submitted Entries</h3>
+        <table class="entity-table" id="entityTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Service</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="6">No entries submitted yet</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="modal fade" id="instructionModal" tabindex="-1" aria-labelledby="instructionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="instructionModalLabel">How to Fill Out the Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>1. Name:</strong> Please enter your first name accurately.</p>
+                    <p><strong>2. Surname:</strong> Please enter your last name accurately.</p>
+                    <p><strong>3. Email:</strong> Provide your valid email address to receive a confirmation.</p>
+                    <p><strong>4. Phone:</strong> Provide a phone number.</p>
+                    <p><strong>5. Message:</strong> Share your query or request for services.</p>
+                    <p><strong>6. Upload Image:</strong> Upload an image if you have an example or inspiration for your project.</p>
+                    <p><strong>7. Service:</strong> Choose the service you're interested in (consultation or renovation).</p>
+                    <p><strong>8. Preferred Contact:</strong> Select your preferred contact method (email or phone).</p>
+                    <p><strong>9. Date & Time:</strong> Choose a preferred date and time for follow-up.</p>
+                    <p><strong>10. Terms and Conditions:</strong> Check the box to agree to our terms.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="alert-error" class="alert alert-danger" style="display:none;">
-        Please fill in all required fields before submitting.
-    </div>
 
-    <form id="contactForm">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="form-group">
-            <label for="surname">Surname:</label>
-            <input type="text" id="surname" name="surname" required>
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
-        </div>
-
-        <div class="form-group">
-            <label for="message">Your Query:</label>
-            <textarea id="message" name="message" rows="7" required></textarea>
-        </div>
-
-        <div class="form-group">
-            <label>Upload Inspirational Photo or Your Current Space Image:</label>
-            <div class="drag-area" id="drag-area">Insert your image here</div>
-            <input type="file" id="image-input" style="display:none;">
-        </div>
-
-        <div class="form-group">
-            <label>Select a Service:</label><br>
-            <div class="radio-label">
-                <input type="radio" id="consultation" name="service" value="consultation" required>
-                <label for="consultation">Consultation</label>
-            </div>
-            <div class="radio-label">
-                <input type="radio" id="renovation" name="service" value="renovation" required>
-                <label for="renovation">Renovation</label>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="preferredContact">Preferred Contact Method:</label>
-            <select id="preferredContact" name="preferredContact" required>
-                <option value="email">Email</option>
-                <option value="phone">Phone</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="date">Preferred Contact Date:</label>
-            <input type="date" id="date" name="date" required>
-        </div>
-
-        <div class="form-group">
-            <label for="time">Preferred Contact Time:</label>
-            <input type="time" id="time" name="time" required>
-        </div>
-
-        <div class="form-group">
-            <div class="checkbox-label">
-                <input type="checkbox" id="terms" name="terms" required>
-                <label for="terms">I agree to the terms and conditions</label>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="button-container">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-    </form>
-
-    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#instructionModal">
-        How to Fill Out the Form
-    </button>
-</section>
-
-<div class="modal fade" id="instructionModal" tabindex="-1" aria-labelledby="instructionModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="instructionModalLabel">How to Fill Out the Form</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p><strong>1. Name and Surname:</strong> Please enter your first and last name accurately.</p>
-                <p><strong>2. Email:</strong> Use a valid email address so we can reach you.</p>
-                <p><strong>3. Phone:</strong> Enter your phone number in the format (1234567890) for contact purposes.</p>
-                <p><strong>4. Message:</strong> Provide a brief description of your inquiry or project.</p>
-                <p><strong>5. Upload an Image:</strong> You can drag and drop an image or select one manually to provide visual references.</p>
-                <p><strong>6. Service Selection:</strong> Choose the service you are interested in (Consultation or Renovation).</p>
-                <p><strong>7. Preferred Contact Method:</strong> Choose whether you'd prefer to be contacted via email or phone.</p>
-                <p><strong>8. Preferred Contact Time:</strong> Select a date and time that works best for you to be contacted.</p>
-                <p><strong>9. Terms and Conditions:</strong> You must agree to the terms before submitting the form.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    document.getElementById('theme-toggle').addEventListener('click', function() {
-        document.body.classList.toggle('dark-theme');
-        const contactForm = document.querySelector('.contact');
-        contactForm.classList.toggle('dark-theme');
-        const h2Title = document.querySelector('h2');
-        h2Title.classList.toggle('dark-theme');
-        
-        if (document.body.classList.contains('dark-theme')) {
-            this.textContent = 'Switch to Light Theme';
-            this.style.backgroundColor = '#a79f9c'; 
-        } else {
-            this.textContent = 'Switch to Dark Theme';
-            this.style.backgroundColor = 'rgb(94, 92, 92)'; 
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            const contactForm = document.querySelector('.contact');
+            contactForm.classList.toggle('dark-theme');
+            const h2Title = document.querySelector('h2');
+            h2Title.classList.toggle('dark-theme');
+            
+            if (document.body.classList.contains('dark-theme')) {
+                this.textContent = 'Switch to Light Theme';
+                this.style.backgroundColor = '#a79f9c'; 
+            } else {
+                this.textContent = 'Switch to Dark Theme';
+                this.style.backgroundColor = 'rgb(94, 92, 92)'; 
+            }
+        });
+    
+        const entries = [];
+        let editingIndex = -1;
+        $(document).ready(function() {
+            $("#contactForm").validate({
+                rules: {
+                    name: "required",
+                    surname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone: "required",
+                    message: "required",
+                    terms: "required"
+                },
+                messages: {
+                    name: "Please enter your name",
+                    surname: "Please enter your surname",
+                    email: "Please enter a valid email address",
+                    phone: "Please enter your phone number (9 digits)",
+                    message: "Please enter your message",
+                    terms: "You must agree to the terms"
+                },
+                submitHandler: function(form) {
+                    const name = $("#name").val();
+                    const surname = $("#surname").val();
+                    const email = $("#email").val();
+                    const phone = $("#phone").val();
+                    const service = $("input[name='service']:checked").val();
+                    const entry = { name, surname, email, phone, service };
+                    
+                    if (editingIndex !== -1) { 
+                        entries[editingIndex] = entry; 
+                        editingIndex = -1;
+                        toastr.success('Entry updated successfully!');
+                    } else {
+                        entries.push(entry); 
+                        toastr.success('Your form has been submitted successfully!');
+                    }
+                    updateEntriesTable();
+                    form.reset();
+                },
+                invalidHandler: function(event, validator) {
+                    toastr.error('Please fill out all required fields correctly.');
+                }
+            });
+        });
+    
+        function updateEntriesTable() {
+            const tableBody = $("#entityTable tbody");
+            tableBody.empty();
+    
+            if (entries.length === 0) {
+                tableBody.append("<tr><td colspan='6'>No entries submitted yet</td></tr>");
+            } else {
+                entries.forEach((entry, index) => {
+                    const row = $("<tr></tr>");
+                    row.append(`<td>${entry.name}</td>`);
+                    row.append(`<td>${entry.surname}</td>`);
+                    row.append(`<td>${entry.email}</td>`);
+                    row.append(`<td>${entry.phone}</td>`);
+                    row.append(`<td>${entry.service}</td>`);
+                    row.append(` 
+                        <td class="action-buttons">
+                            <button class="btn btn-warning edit-btn" data-index="${index}">Edit</button>
+                            <button class="btn btn-danger delete-btn" data-index="${index}">Delete</button>
+                        </td>
+                    `);
+                    tableBody.append(row);
+                });
+            }
         }
-    });
-</script>
+    
+        $("#entityTable").on("click", ".edit-btn", function() {
+            const index = $(this).data("index");
+            const entry = entries[index];
+            $("#name").val(entry.name);
+            $("#surname").val(entry.surname);
+            $("#email").val(entry.email);
+            $("#phone").val(entry.phone);
+            $(`input[name="service"][value="${entry.service}"]`).prop("checked", true);
+            editingIndex = index;
+            window.scrollTo(0, 0);
+        });
+    
+        $("#entityTable").on("click", ".delete-btn", function() {
+            const index = $(this).data("index");
+            entries.splice(index, 1);
+            updateEntriesTable();
+            toastr.success('Entry deleted successfully!');
+        });
+    </script>
 
-<footer>
-    <p>&copy; 2024 Foundations of Web Development - Nejla Mizdrak</p>
-</footer>
-
+    <footer>
+        <p>&copy; 2024 Foundations of Web Development - Nejla Mizdrak</p>
+    </footer>
 </body>
 </html>
