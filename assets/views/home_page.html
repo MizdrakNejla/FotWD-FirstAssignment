@@ -1,0 +1,52 @@
+<div class="hero1">
+    <h1>Let's Transform Your Living Space</h1>
+</div>
+
+<section id="portfolio" class="portfolio">
+    <h2>Our Portfolio</h2>
+    <div class="grid-container">
+        <article class="grid-item">
+            <img src="../images/livingroom.jpg" alt="Living Room">
+            <p>Living Rooms</p>
+        </article>
+        <article class="grid-item">
+            <img src="../images/kitchen.jpg" alt="Kitchen">
+            <p>Kitchens</p>
+        </article>
+        <article class="grid-item">
+            <img src="../images/bedroom.jpg" alt="Bedroom">
+            <p>Bedrooms</p>
+        </article>
+        <article class="grid-item">
+            <img src="../images/bathroom.jpg" alt="Bathroom">
+            <p>Bathrooms</p>
+        </article>
+        <article class="grid-item">
+            <img src="../images/garden.jpg" alt="Garden">
+            <p>Gardens</p>
+        </article>
+        <article class="grid-item">
+            <img src="../images/office.jpg" alt="Office">
+            <p>Offices</p>
+        </article>
+    </div>
+</section>
+
+<div id="welcomeMessageContainer">
+    <p id="welcomeMessage"></p>
+    <button id="logoutButton">Logout</button>
+</div>
+
+<script>
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (loggedInUser) {
+        document.getElementById('welcomeMessage').textContent = `Hello, ${loggedInUser.username}`;
+        document.getElementById('welcomeMessageContainer').style.display = 'block';
+    } else {
+        window.location.href = 'contact.html';
+    }
+    document.getElementById('logoutButton').addEventListener('click', function() {
+        localStorage.removeItem('loggedInUser');
+        window.location.href = 'contact.html';
+    });
+</script>

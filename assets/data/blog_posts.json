@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "title": "A Compliment to the Minimalist Design",
+      "author": "Marija Andrić",
+      "date": "2024-11-27",
+      "content": "I absolutely love the minimalist design of the living room. It gives such a calm and welcoming vibe."
+    },
+    {
+      "id": 2,
+      "title": "Curious About the Shades for This Bedroom?",
+      "author": "Faris Kadrić",
+      "date": "2024-12-10",
+      "content": "The color palette you used for the bedroom is fantastic! Can you share the shades of paint you recommend?"
+    },
+    {
+      "id": 3,
+      "title": "Tips for Office Space Optimization?",
+      "author": "Denis Davidović",
+      "date": "2024-11-15",
+      "content": "I’m interested in recreating a similar design for my office. Do you have any tips on space optimization?"
+    },
+    {
+        "id": 4,
+        "title": "Great Mix of Modern and Vintage",
+        "author": "Sara Milić",
+        "date": "2024-10-22",
+        "content": "Love how you mixed modern and vintage pieces. It's a perfect blend of style and character!"
+    },
+    {
+        "id": 5,
+        "title": "Recommendations for Quality Furniture Brands?",
+        "author": "Jana Totić",
+        "date": "2024-10-13",
+        "content": "Can you share the brands of furniture you recommend? I’ve been struggling to find the perfect mix of quality and style."
+      }
+  ]
+  
