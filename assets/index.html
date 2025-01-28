@@ -19,7 +19,7 @@
         <a href="#home_page" id="home-link"><img src="../images/logo.png" alt="Logo"></a>
         <h1>Interior Design and Decoration</h1>
         <nav>
-            <a href="#home_page" id="home-nav">Home</a>
+            <a href="#home_page" id="home_page-nav">Home</a>
             <a href="#about_us" id="about-nav">About Us</a>
             <a href="#projects" id="projects-nav">Projects</a>
             <a href="#contact" id="contact-nav">Contact</a>
@@ -27,11 +27,11 @@
     </header>
 
     <main id="spapp" role="main">
-            <section id="home_page" data-load="home_page.html"></section>
-            <section id="about_us" data-load="about_us.html"></section>
-            <section id="projects" data-load="projects.html"></section>
-            <section id="contact" data-load="contact.html"></section>
-        </main>
+        <section id="home_page" data-load="home_page.html"></section> 
+        <section id="about_us" data-load="about_us.html"></section>
+        <section id="projects" data-load="projects.html"></section>
+        <section id="contact" data-load="contact.html"></section> 
+    </main>
 
     <footer>
         <p>&copy; 2024 Foundations of Web Development - Nejla Mizdrak</p>
@@ -39,26 +39,10 @@
 
     <script>
         var app = $.spapp({
-            defaultView: "#home_page",
-            templateDir: "views/"
+            defaultView: "#home_page", 
+            templateDir: "views/"   
         });
         app.run();
-
-        $(window).on('hashchange', function() {
-            $('html, body').animate({scrollTop: 0}, 0);
-            $('nav a').removeClass('active');
-            var currentHash = window.location.hash;
-            if (currentHash === "#home_page") {
-                $('#home-nav').addClass('active');
-            } else if (currentHash === "#about_us") {
-                $('#about-nav').addClass('active');
-            } else if (currentHash === "#projects") {
-                $('#projects-nav').addClass('active');
-            } else if (currentHash === "#contact") {
-                $('#contact-nav').addClass('active');
-            }
-        });
-
     </script>
 
 </body>

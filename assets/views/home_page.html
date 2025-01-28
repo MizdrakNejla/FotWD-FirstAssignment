@@ -31,22 +31,3 @@
         </article>
     </div>
 </section>
-
-<div id="welcomeMessageContainer">
-    <p id="welcomeMessage"></p>
-    <button id="logoutButton">Logout</button>
-</div>
-
-<script>
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    if (loggedInUser) {
-        document.getElementById('welcomeMessage').textContent = `Hello, ${loggedInUser.username}`;
-        document.getElementById('welcomeMessageContainer').style.display = 'block';
-    } else {
-        window.location.href = 'contact.html';
-    }
-    document.getElementById('logoutButton').addEventListener('click', function() {
-        localStorage.removeItem('loggedInUser');
-        window.location.href = 'contact.html';
-    });
-</script>
